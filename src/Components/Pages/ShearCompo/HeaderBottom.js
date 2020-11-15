@@ -1,8 +1,8 @@
 import React from 'react';
-import './Css/Header.css';
+import './Css/Header.scss';
 import { Col, Row } from 'react-bootstrap';
 import headerSideImg from '../../images/logos/Frame.png';
-import './Css/MediaQuery.css'
+import './Css/MediaQuery.scss'
 
 const HeaderBottom = () => {
     return (

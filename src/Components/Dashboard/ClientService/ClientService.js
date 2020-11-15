@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
-import './ClientService.css';
+import './ClientService.scss';
 
 const ClientService = () => {
     const getEmail = sessionStorage.getItem('user');
