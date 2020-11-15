@@ -1,5 +1,6 @@
-.title-login{
-    
+.title-login h3{
+    font-size: 24px;
+    font-weight: bold;
 }
 .signed-in-option{
     padding: 30px 50px;
@@ -26,10 +27,6 @@
     text-decoration: underline;
 }
 
-
-#login{
-    color: #fff;
-}
 .app{
     display: flex;
     flex-direction: column;
@@ -60,7 +57,6 @@
     color:rgb(255, 139, 110)
   }
   input{
-    width: 500px;
     height: 36px;
     padding:10px;
     border: none;
@@ -68,9 +64,17 @@
     margin-top: 10px;
     margin-bottom: 4px;
   }
- 
+  #login-checkbox{
+      height: 10px;
+      margin-right: 3px;
+  }
+ .forgot-pass p{
+     margin-bottom: 0;
+ }
   ::placeholder {
-      color: #252525;
+      color: #000000;
+      font-weight: bold;
+     
   }
   .other-sign-option{
       margin-top: 25px;
@@ -79,4 +83,7 @@
     margin-top: 7px;
     width: 10px;
     height: 10px;
+}
+.fromSection{
+    box-shadow: 0px 0 2px #363535;
 }
