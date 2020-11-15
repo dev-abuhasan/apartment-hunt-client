@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import './Review.css'
-import '../MediaQuery.css'
+import './Review.scss'
+import '../MediaQuery.scss'
 const Review = () => {
     const [formData, updateFormData] = useState({
         name: "",

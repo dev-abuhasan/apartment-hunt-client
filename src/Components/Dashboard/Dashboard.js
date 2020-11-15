@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Col, Nav, Navbar, NavDropdown, Row } from 'react-bootstrap';
-import './Dashboard.css'
+import './Dashboard.scss'
 import { AuthContext } from '../AuthData/Auth';
 import { ExtraDataContext } from '../ExtraData/ExtraData';
 import Oder from './Order/Oder';
