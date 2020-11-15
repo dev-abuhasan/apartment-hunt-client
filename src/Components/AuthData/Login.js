@@ -5,13 +5,14 @@ import Formsy, { addValidationRule } from 'formsy-react';
 import MyInput from './MyInput';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import google from '../images/icons/google.png';
+import facebookIcon from '../images/logos/Group 2.png'
 import { AuthContext } from './Auth';
 import Navbars from '../Pages/ShearCompo/Navbars';
 
 //form Validation check by warnings START
 const errors = {
     isEmail: 'You have to type a valid email',
-    maxLength: 'You cannot type more than 25 characters',
+    maxLength: 'You cannot type more than 60 characters',
     minLength: 'You must type more than 6 characters',
     isAlpha: 'You can only type letters',
     equalsField: 'Password is not match'
@@ -19,7 +20,7 @@ const errors = {
 //form Validation check by warnings END
 
 const Login = () => {
-    const [canSubmit, setCanSubmit] = useState(false)
+    const [canSubmit, setCanSubmit] = useState(false);
     addValidationRule('isStrong', function (values, value) {
         return ['$', '%'].some(v => value && value.indexOf(v) !== -1)
     })
@@ -73,26 +74,27 @@ const Login = () => {
             <Navbars />
             <br />
             <br />
-            <section className="fromSection col-md-5">
+            <section className="fromSection col-lg-7 col-md-8 mx-auto">
                 <Formsy className='form w-100' onValidSubmit={submitLogin} onValid={enableButton} onInvalid={disableButton}>
                     <div className="title-login">
                         <h3 className="text-dark">Login</h3>
                     </div>
-                    <MyInput label="" type="text" name="email" validations="maxLength:25,isEmail" validationErrors={errors} placeholder="Email address..." required />
+                    <MyInput label="" type="text" name="email" validations="maxLength:60,isEmail" validationErrors={errors} placeholder="Email address..." required />
 
                     <MyInput label="" type="password" name="password" validations="minLength:6" validationErrors={errors} placeholder="password..." required />
 
-                    <div className="d-flex justify-content-between align-items-center">
-                        <div>
-                            <input type="checkbox" id="login-checkbox" /><span className="text-danger">Remember me</span>
+                    <div className="d-flex align-items-center justify-content-between">
+                        <div className="">
+                            <input type="checkbox" id="login-checkbox" required />
+                            <span className="color_000">Remember me</span>
                         </div>
-                        <p className="text-dark cursor-pointer" onClick={() => changePath()}>Forgot your password</p>
+                        <div className="text-dark cursor-pointer forgot-pass color_ggg" onClick={() => changePath()}><p className="">Forgot password</p></div>
                     </div>
 
                     <br />
-                    <button type="submit" disabled={!canSubmit} className="">
-                        Log-In
-                </button>
+                    <button type="submit" disabled={!canSubmit} className={!canSubmit?"login-btn":"success-btn"}>
+                        Login
+                    </button>
 
                     {error
                         ? <p><span className="text-danger w-50">{error}</span></p>
@@ -100,26 +102,26 @@ const Login = () => {
                     }
                     <br />
 
-                    <p className="text-center text-dark">Created A Account?
-                    <Link className="Link" to='/sign-up'>
-                            Sign-Up
+                    <p className="text-center text-dark"> Don't have an account?
+                    <Link className="Link create-account" to='/sign-up'>
+                           Create an account
                     </Link>
                     </p>
                 </Formsy>
             </section>
-            <div className="other-sign-option">
-                <div style={{ color: "#fff" }}>
-                    ----------------------------------------or----------------------------------------
+            <div className="other-sign-option col-md-5 mx-auto">
+                <div className="text-center">
+                ------------------- or -------------------
                 </div>
                 <br />
-                <div>
+                <div className="">
                     <button className="login-sign-up-btn" onClick={() => handFacebookSign()}>
-                        <span className="float-left pl-3 google-icon"><img src={google} alt="" /></span>
-                        <span className="text-center">Continue with Google</span>
+                        <span className="float-left pl-3 google-icon"><img src={facebookIcon} alt="" /></span>
+                        <span className="text-center pt-2 d-block">Continue with Google</span>
                     </button>
                     <button className="login-sign-up-btn" onClick={() => handGoogleSign()}>
                         <span className="float-left pl-3 google-icon"><img src={google} alt="" /></span>
-                        <span className="text-center">Continue with Google</span>
+                        <span className="text-center pt-2 d-block">Continue with Google</span>
                     </button>
                 </div>
             </div>

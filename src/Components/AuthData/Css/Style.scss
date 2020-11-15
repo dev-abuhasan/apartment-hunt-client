@@ -27,10 +27,6 @@
     text-decoration: underline;
 }
 
-
-#login{
-    color: #fff;
-}
 .app{
     display: flex;
     flex-direction: column;
@@ -68,9 +64,17 @@
     margin-top: 10px;
     margin-bottom: 4px;
   }
- 
+  #login-checkbox{
+      height: 10px;
+      margin-right: 3px;
+  }
+ .forgot-pass p{
+     margin-bottom: 0;
+ }
   ::placeholder {
-      color: #252525;
+      color: #000000;
+      font-weight: bold;
+     
   }
   .other-sign-option{
       margin-top: 25px;
