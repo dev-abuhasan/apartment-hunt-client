@@ -7,7 +7,6 @@ import logo from '../images/logos/logo.png';
 import { AuthContext } from './Auth';
 import { ExtraDataContext } from '../ExtraData/ExtraData';
 
-
 const Login = () => {
     document.title = "Login-Pages";
     //get user login form auth.js file
