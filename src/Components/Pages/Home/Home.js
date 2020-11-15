@@ -1,5 +1,5 @@
 import React from 'react';
-import CarouselSection from '../ShearCompo/CarouselSection';
+
 import Customer from '../ShearCompo/Customer';
 import Footer from '../ShearCompo/Footer';
 import Header from '../ShearCompo/Header';
@@ -15,9 +15,6 @@ const Home = () => {
            <main id="main" className="container">
                 <Customer />
                 <Services />
-                <section id="carousel-part">
-                    <CarouselSection />
-                </section>
                 <Review />
                 <Footer />
            </main>
