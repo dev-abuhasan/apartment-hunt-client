@@ -73,13 +73,11 @@ const Login = () => {
             <Navbars />
             <br />
             <br />
-            <section>
-                <div className="title-login">
-                    <h3>Login</h3>
-                </div>
-                <Formsy className='form' onValidSubmit={submitLogin} onValid={enableButton} onInvalid={disableButton}>
-                    <h2 className="text-dark">Login</h2>
-
+            <section className="fromSection col-md-5">
+                <Formsy className='form w-100' onValidSubmit={submitLogin} onValid={enableButton} onInvalid={disableButton}>
+                    <div className="title-login">
+                        <h3 className="text-dark">Login</h3>
+                    </div>
                     <MyInput label="" type="text" name="email" validations="maxLength:25,isEmail" validationErrors={errors} placeholder="Email address..." required />
 
                     <MyInput label="" type="password" name="password" validations="minLength:6" validationErrors={errors} placeholder="password..." required />
@@ -108,23 +106,23 @@ const Login = () => {
                     </Link>
                     </p>
                 </Formsy>
-                <div className="other-sign-option">
-                    <div style={{ color: "#fff" }}>
-                        ----------------------------------------or----------------------------------------
-                </div>
-                    <br />
-                    <div>
-                        <button className="login-sign-up-btn" onClick={() => handFacebookSign()}>
-                            <span className="float-left pl-3 google-icon"><img src={google} alt="" /></span>
-                            <span className="text-center">Continue with Google</span>
-                        </button>
-                        <button className="login-sign-up-btn" onClick={() => handGoogleSign()}>
-                            <span className="float-left pl-3 google-icon"><img src={google} alt="" /></span>
-                            <span className="text-center">Continue with Google</span>
-                        </button>
-                    </div>
-                </div>
             </section>
+            <div className="other-sign-option">
+                <div style={{ color: "#fff" }}>
+                    ----------------------------------------or----------------------------------------
+                </div>
+                <br />
+                <div>
+                    <button className="login-sign-up-btn" onClick={() => handFacebookSign()}>
+                        <span className="float-left pl-3 google-icon"><img src={google} alt="" /></span>
+                        <span className="text-center">Continue with Google</span>
+                    </button>
+                    <button className="login-sign-up-btn" onClick={() => handGoogleSign()}>
+                        <span className="float-left pl-3 google-icon"><img src={google} alt="" /></span>
+                        <span className="text-center">Continue with Google</span>
+                    </button>
+                </div>
+            </div>
         </Container>
     );
 };
