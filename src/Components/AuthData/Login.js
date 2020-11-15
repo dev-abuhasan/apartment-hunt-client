@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import './Css/Style.css'
+import './Css/Style.scss'
 import { Container } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import googleIcon from '../images/icons/google.png';

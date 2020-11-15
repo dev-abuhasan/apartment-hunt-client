@@ -1,5 +1,5 @@
 import React from 'react';
-import './Css/Header.css';
+import './Css/Header.scss';
 import Carousel from "react-elastic-carousel";
 import carouselOne from '../../images/carousel-1.png';
 import carouselTow from '../../images/carousel-2.png';
