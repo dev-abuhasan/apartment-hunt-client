@@ -1,5 +1,5 @@
 import React from 'react';
-import './Css/Header.css'
+import './Css/Header.scss'
 import { Button, Col, Form } from 'react-bootstrap';
 
 const Footer = () => {

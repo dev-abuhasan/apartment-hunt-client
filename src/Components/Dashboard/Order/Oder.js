@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Order.css';
+import './Order.scss';
 import { Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
