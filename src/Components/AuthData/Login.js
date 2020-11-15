@@ -3,7 +3,7 @@ import './Css/Style.scss'
 import { Container } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import googleIcon from '../images/icons/google.png';
-import logo from '../images/logos/logo.png';
+import logo from '../images/logos/Logo.png';
 import { AuthContext } from './Auth';
 import { ExtraDataContext } from '../ExtraData/ExtraData';
 
