@@ -4,12 +4,8 @@ import './Css/Style.scss';
 import Formsy, { addValidationRule } from 'formsy-react';
 import MyInput from './MyInput';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-<<<<<<< HEAD
 import googleIcon from '../images/icons/google.png';
 import logo from '../images/icons/google.png';
-=======
-import google from '../images/icons/google.png';
->>>>>>> ea9ddc2f40814f844d7edf609fdec0b426432c5c
 import { AuthContext } from './Auth';
 import Navbars from '../Pages/ShearCompo/Navbars';
 
