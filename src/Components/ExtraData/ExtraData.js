@@ -83,6 +83,7 @@ const ExtraDataProvider = (props) => {
     //check admin
     const getEmail = sessionStorage.getItem('user');
     const [Admin, setAdmin] = useState(null);
+    const [oldUser, setOldUser] = useState(true);
 
 return (
     <Provider value={
@@ -90,6 +91,8 @@ return (
             seeData,
             getEmail,
             Admin,
+            oldUser,
+            setOldUser,
             setAdmin,
             setSeeData,
             ClickShowData,
