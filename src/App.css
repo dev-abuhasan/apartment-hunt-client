@@ -1,0 +1,21 @@
+.login-btn{
+  background-color: #000;
+  color: #fff!important;
+  padding: 8px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #bbbbbb;
+}
+img{
+  width: 100%;
+}
+.logout-btn{
+  background-color: #20213b!important;
+  color: #fff!important;
+}
+.dash-title{
+  font-weight: bold;
+  font-size: 24px;
+}
+.border-red-bottom{
+  border-bottom: 1px solid #e93a3a;
+}
