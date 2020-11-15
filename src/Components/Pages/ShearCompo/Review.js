@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 import GoBlobsAni from '../../SpringAni/GoBlobsAni';
-import './Css/Header.css';
+import './Css/Header.scss';
 
 const Review = () => {
     const [reviewData, setReviewData] = useState([]);

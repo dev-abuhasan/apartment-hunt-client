@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import './MakeAdmin.css';
+import './MakeAdmin.scss';
 
 const MakeAdmin = () => {
     const [formData, updateFormData] = useState({

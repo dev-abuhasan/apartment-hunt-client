@@ -1,12 +1,12 @@
 import React from 'react';
-import './Css/Header.css'
+import './Css/Header.scss'
 import { Col, Container, Row } from 'react-bootstrap';
 import slackLogo from '../../images/logos/slack.png';
 import googleIcon from '../../images/logos/google.png';
 import UberIcon from '../../images/logos/uber.png';
 import netFlexIcon from '../../images/logos/netflix.png';
 import airBnbIcon from '../../images/logos/airbnb.png';
-import './Css/MediaQuery.css';
+import './Css/MediaQuery.scss';
 
 const Customer = () => {
     return (

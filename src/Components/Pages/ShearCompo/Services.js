@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
-import './Css/Header.css'
-import './Css/MediaQuery.css'
+import './Css/Header.scss'
+import './Css/MediaQuery.scss'
 const Services = () => {
 
     const [serviceData, setServiceData] = useState([]);

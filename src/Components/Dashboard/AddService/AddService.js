@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './AddService.css';
+import './AddService.scss';
 import { Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
-import '../MediaQuery.css';
+import '../MediaQuery.scss';
 const AddService = () => {
     const uploadIcon = <FontAwesomeIcon icon={faCloudUploadAlt} />
 
