@@ -5,6 +5,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import googleIcon from '../images/icons/google.png';
 import logo from '../images/logos/logo.png';
 import { AuthContext } from './Auth';
+import { ExtraDataContext } from '../ExtraData/ExtraData';
 
 
 const Login = () => {
@@ -27,7 +28,12 @@ const Login = () => {
             })
     }
 
+    //ExtraData Context
+    const extraData = useContext(ExtraDataContext);
+    const {oldUser,setOldUser} = extraData;
+    console.log(oldUser);
 
+    
     return (
         <Container id="login" className="">
             <div className="logo-img">
