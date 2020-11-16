@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import img from '.../.../images/Rectangle';
 import img1 from '../../images/Rectangle 407.png';
 import img2 from '../../images/Rectangle 408.png';
 import img3 from '../../images/Rectangle 409.png';
