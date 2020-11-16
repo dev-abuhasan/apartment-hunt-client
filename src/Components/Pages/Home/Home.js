@@ -7,7 +7,7 @@ import Services from '../ShearCompo/Services';
 import './Home.scss';
 
 const Home = () => {
-    document.title = "Creative-Agency Home";
+    document.title = "Apartment Hunt Home";
     return (
         <div style={{backgroundColor:"#F0F5F3"}}>
            <Header />

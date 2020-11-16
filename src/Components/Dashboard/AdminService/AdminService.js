@@ -11,11 +11,10 @@ const AdminService = () => {
 
     const [adminService, setAdminService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/all-services/`)
+        fetch(`http://localhost:5000/all`)
             .then(res => res.json())
             .then(data => {
                 setAdminService(data)
-                console.log(data);
             })
     }, [getEmail]);
     const handleUpdate = (id, strings) => {
@@ -127,7 +126,7 @@ const AdminService = () => {
                         </tr>
                     ) : <tr>
                             <td>
-                                {/* <LoadingSpinner /> */}
+                                <LoadingSpinner />
                             </td>
                         </tr>
                     }
