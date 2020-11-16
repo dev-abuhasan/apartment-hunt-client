@@ -14,8 +14,8 @@ const Home = () => {
            <HeaderBottom />
            <main id="main" className="container">
                 <Services />
-                <Review />
            </main>
+           <Review />
            <Footer />
         </div>
     );

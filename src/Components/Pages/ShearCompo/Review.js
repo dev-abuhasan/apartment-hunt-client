@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Css/Review.scss';
+import './Css/MediaQuery.scss';
 
 const ReviewData = [
     {
@@ -27,17 +28,17 @@ const Review = () => {
     const [reviewData, setReviewData] = useState(ReviewData);
 
     return (
-        <section className="services-container mt-5">
-                <h1 className="taitle text-center">We're an agency tailored to all<br/>clients'needs that always delivers</h1>
+        <section className="review mt-5">
+            <h1 className="taitle text-center ">We're an agency tailored to all<br />clients'needs that always delivers</h1>
             <div className="d-flex justify-content-center">
                 <div className="w-75 row mt-5">
                     {reviewData.map(review =>
-                            <div key={review.id} className="col-md-4 text-center service">
-                                <img style={{ width: '100px' }} src={review.img} alt="" />
-                                <h5 className="mt-3 mb-3 card-color">{review.name}</h5>
-                                <p className="text-secondary">{review.Description}</p>
+                        <div key={review.id} className="col-md-4 text-center service">
+                            <img style={{ width: '100px' }} src={review.img} alt="" />
+                            <h5 className="mt-3 mb-3 card-color">{review.name}</h5>
+                            <p className="text-secondary">{review.Description}</p>
                         </div>
-                             
+
                     )}
                 </div>
             </div>

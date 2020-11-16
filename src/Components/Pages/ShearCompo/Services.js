@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Button, Card, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 import './Css/Header.scss';
 import './Css/MediaQuery.scss';
@@ -44,7 +44,7 @@ const Services = () => {
     return (
         <Row>
             <div className="services-title text-center mt-5 mb-3 col-sm-12">
-                <h2 className="card-color">Discover the latest Rent<br />available today</h2>
+                <h2 className="card-color main-text">Discover the latest Rent<br />available today</h2>
             </div>
             {serviceData.length > 0 ? serviceData.map(data =>
                 <Card className="card-Style" style={{ width: '18rem' }} key={data.id}>
@@ -59,8 +59,10 @@ const Services = () => {
                         <ListGroupItem><img style={{ width: '20px' }} src={bad} alt="" /> {data.bad} Bedrooms <span style={{ float: 'right' }}> <img style={{ width: '20px' }} src={bath} alt="" /> {data.bathroom} Bathroom</span></ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                        <Card.Link className="price" href="#">${data.price}</Card.Link>
-                        <Card.Link className="card-color" href="#"><Button className="card-btn" variant="success">Wiew Details</Button></Card.Link>
+                        <Card.Link className="price">${data.price}</Card.Link>
+                        <Card.Link className="card-color">
+                            <Link to="/"><Button className="card-btn" variant="success">Wiew Details</Button></Link>
+                        </Card.Link>
                     </Card.Body>
                 </Card>
             ) : <div className="m-auto">
