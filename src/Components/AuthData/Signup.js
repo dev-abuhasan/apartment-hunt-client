@@ -3,8 +3,9 @@ import Formsy, { addValidationRule } from 'formsy-react';
 import MyInput from './MyInput';
 import './Css/Style.scss';
 import google from '../images/icons/google.png';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { AuthContext } from './Auth';
+import { ExtraDataContext } from '../ExtraData/ExtraData';
 
 //form Validation check by warnings START
 const errors = {
@@ -39,9 +40,11 @@ const SignUp = () => {
 
     //form submit to firebase register with email and password
     const submit = (newUserInfo) => {
-        if (newUserInfo.email && newUserInfo.password && newUserInfo.fullName) {
-            console.log(newUserInfo.email, newUserInfo.password);
-            registerEmailAndPassword(newUserInfo.email, newUserInfo.password, newUserInfo.fullName)
+        const { firstName, lastName } = newUserInfo;
+        const conCatName = firstName + " " + lastName;
+        console.log(conCatName);
+        if (newUserInfo.email && newUserInfo.password && conCatName) {
+            registerEmailAndPassword(newUserInfo.email, newUserInfo.password, conCatName)
                 .then(r => {
                     history.replace(from);
                 })
@@ -63,54 +66,40 @@ const SignUp = () => {
                 history.replace(from);
             })
     }
+    //ExtraData Context 
+    const extraData = useContext(ExtraDataContext);
+    const { oldUser, setOldUser } = extraData;
+    const checkUser = (e) => {
+        if (e === false) {
+            setOldUser(true);
+        }
+        if (e === true) {
+            setOldUser(false);
+        }
+    }
+
     return (
-        <div className='app'>
-
-            <Formsy className='form' onValidSubmit={submit} onValid={enableButton} onInvalid={disableButton}>
-                <h2>Create an Account</h2>
-                <MyInput label="" type="text" name="firstName" validations="maxLength:25" placeholder="First Name" required />
-
-                <MyInput label="" type="text" name="lastName" validations="maxLength:25" placeholder="Last Name" required />
-
-                <MyInput label="" type="text" name="fullName" validations="maxLength:25" placeholder="Full Name..." required />
-
-                <MyInput label="" type="text" name="email" validations="maxLength:25,isEmail" validationErrors={errors} placeholder="Email address..." required />
-
-                <MyInput label="" type="password" name="password" validations="minLength:6,isStrong" validationErrors={errors} placeholder="password..." required />
-
-                <MyInput label="" type="password" name="passwordrepeat" validations="equalsField:password" validationErrors={errors} placeholder="password-repeat" required />
-
-                <button type="submit" disabled={!canSubmit} className="">
-                    Cerate An Account
-                </button>
-                <p className="text-center">Alredy have an Account? <Link className="Link" to='/login'>Login</Link></p>
-
-                <br />
-                {
-                    succeed === true
-                        ? <p className="errorSuccess">Your Account Created successfully!</p>
-                        :
-                        <p className="errorWarning">{succeed}</p>
-                }
-            </Formsy>
-            <div className="other-sign-option">
-                <div style={{ color: "#fff" }}>
-                    ----------------------------------------or----------------------------------------
-                </div>
-                <br />
-                <div>
-                    <button className="login-sign-up-btn" onClick={() => handFacebookSign()}>
-                        <span className="float-left pl-3"><img src={google} alt="" /></span>
-                        <span className="text-center">Continue with Facebook</span>
-                    </button>
-                    <button className="login-sign-up-btn" onClick={() => handGoogleSign()}>
-                        <span className="float-left pl-3 google-icon"><img src={google} alt="" /></span>
-                        <span className="text-center">Continue with Google</span>
-                    </button>
-                </div>
+        <Formsy className='form' onValidSubmit={submit} onValid={enableButton} onInvalid={disableButton}>
+            <div className="title-login">
+                <h3 className="text-dark">Create an account</h3>
             </div>
-        </div>
-
+            <MyInput label="" type="text" name="firstName" validations="maxLength:25" placeholder="First Name" required />
+            <MyInput label="" type="text" name="lastName" validations="maxLength:25" placeholder="Last Name" required />
+            <MyInput label="" type="text" name="email" validations="maxLength:25,isEmail" validationErrors={errors} placeholder="Username or Email" required />
+            <MyInput label="" type="password" name="password" validations="minLength:6,isStrong" validationErrors={errors} placeholder="password" required />
+            <MyInput label="" type="password" name="passwordrepeat" validations="equalsField:password" validationErrors={errors} placeholder="Confrim Password" required />
+            <button type="submit" disabled={!canSubmit} className={!canSubmit ? "disabled-btn mb-1" : "success-btn mb-1"}>
+                Cerate An Account
+                </button>
+            <p className="text-center">Already have an Account? <span className="Link create-account" onClick={() => checkUser(oldUser)}>Login</span></p>
+            <br />
+            {
+                succeed === true
+                    ? <p className="errorSuccess">Your Account Created successfully!</p>
+                    :
+                    <p className="errorWarning">{succeed}</p>
+            }
+        </Formsy>
     );
 };
 

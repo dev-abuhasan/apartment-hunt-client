@@ -15,10 +15,7 @@ const AdminService = () => {
             .then(res => res.json())
             .then(data => setAdminService(data))
     }, [getEmail]);
-
     const handleUpdate = (id, strings) => {
-
-
         if (strings === 'Done') {
             const statusOption = 'Done';
             fetch(`http://localhost:5000/update-statue/${id}`, {
@@ -78,8 +75,8 @@ const AdminService = () => {
                     <tr className="">
                         <th className="">Name</th>
                         <th className="ww-25">Email Id</th>
-                        <th className="">Service</th>
-                        <th className="w-25">Project Details</th>
+                        <th className="">Phone</th>
+                        <th className="w-25">Massage</th>
                         <th className="">Status</th>
                     </tr>
                 </thead>
@@ -98,11 +95,11 @@ const AdminService = () => {
                                             <span className="ml-2">{downIcon}</span>
                                         </span> : ""
                                     }
-                                    {data.statusOption === 'onGoing'?
+                                    {data.statusOption === 'onGoing' ?
                                         <span className="text-warning">
                                             {data.statusOption}
                                             <span className="ml-2">{downIcon}</span>
-                                        </span>: ''
+                                        </span> : ''
                                     }
                                     <div className="dropdown-content">
                                         {data.statusOption !== "Done" ?
@@ -127,7 +124,7 @@ const AdminService = () => {
                         </tr>
                     ) : <tr>
                             <td>
-                                <LoadingSpinner />
+                                {/* <LoadingSpinner /> */}
                             </td>
                         </tr>
                     }

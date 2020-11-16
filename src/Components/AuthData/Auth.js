@@ -115,7 +115,9 @@ const UserAuthProvider = (props) => {
         return firebase.auth().signInWithEmailAndPassword(email, password)
             .then((result) => {
                 const name = result.user.displayName;
-                setUser(name);
+                const email = result.user.email;
+                sessionStorage.setItem('name', name);
+                sessionStorage.setItem('user', email);
                 storeAuthJwtToken()
                 return result;
             })
@@ -142,7 +144,7 @@ const UserAuthProvider = (props) => {
     const storeAuthJwtToken = () => {
         firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
             .then(idToken => {
-                console.log(idToken);
+                // console.log(idToken);
                 sessionStorage.setItem('token', idToken);
             }).catch(error => {
                 console.log(error);
