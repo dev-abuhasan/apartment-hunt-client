@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import Formsy, { addValidationRule } from 'formsy-react';
 import MyInput from './MyInput';
 import './Css/Style.scss';
-import google from '../images/icons/google.png';
 import { useHistory, useLocation } from 'react-router-dom';
 import { AuthContext } from './Auth';
 import { ExtraDataContext } from '../ExtraData/ExtraData';
@@ -33,7 +32,7 @@ const SignUp = () => {
     //Handle Firebase Auth
     //get user login form auth.js file
     const auth = useContext(AuthContext);
-    const { handleGoogleSignIn, facebookRegistration, registerEmailAndPassword, succeed } = auth;
+    const { registerEmailAndPassword, succeed } = auth;
     const location = useLocation();
     const history = useHistory();
     let { from } = location.state || { from: { pathname: "/login" } };
@@ -51,21 +50,6 @@ const SignUp = () => {
         }
     }
 
-    //google sign in 
-    const handGoogleSign = () => {
-        handleGoogleSignIn()
-            .then(r => {
-                history.replace(from);
-            })
-    }
-
-    //facebook sign in
-    const handFacebookSign = () => {
-        facebookRegistration()
-            .then(r => {
-                history.replace(from);
-            })
-    }
     //ExtraData Context 
     const extraData = useContext(ExtraDataContext);
     const { oldUser, setOldUser } = extraData;

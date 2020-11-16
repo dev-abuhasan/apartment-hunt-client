@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import './AdminService.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 const AdminService = () => {
     const downIcon = <FontAwesomeIcon icon={faChevronDown} />
@@ -10,11 +11,10 @@ const AdminService = () => {
 
     const [adminService, setAdminService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/all-services/`)
+        fetch(`http://localhost:5000/all`)
             .then(res => res.json())
             .then(data => {
                 setAdminService(data)
-                console.log(data);
             })
     }, [getEmail]);
     const handleUpdate = (id, strings) => {
@@ -126,7 +126,7 @@ const AdminService = () => {
                         </tr>
                     ) : <tr>
                             <td>
-                                {/* <LoadingSpinner /> */}
+                                <LoadingSpinner />
                             </td>
                         </tr>
                     }
