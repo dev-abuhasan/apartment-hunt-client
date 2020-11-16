@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTaxi, faHome, faPlus, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTaxi, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ExtraDataContext } from '../../ExtraData/ExtraData';
-// import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
+//import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 const Sidebar = () => {
     const ExtraData = useContext(ExtraDataContext)

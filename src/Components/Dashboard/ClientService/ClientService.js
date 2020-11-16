@@ -73,7 +73,6 @@ const ClientService = () => {
             })
             .then(() => window.location.reload())
     }
-
     return (
         <div className="list-table">
             <Table responsive className="w-100">

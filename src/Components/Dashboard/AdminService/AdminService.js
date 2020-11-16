@@ -3,7 +3,6 @@ import { Table } from 'react-bootstrap';
 import './AdminService.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 const AdminService = () => {
     const downIcon = <FontAwesomeIcon icon={faChevronDown} />

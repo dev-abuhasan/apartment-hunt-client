@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import './Css/Header.scss';
-import HeaderBottom from './HeaderBottom';
 import Navbars from './Navbars';
 
 const Header = () => {
