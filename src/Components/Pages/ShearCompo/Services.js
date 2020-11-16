@@ -18,7 +18,7 @@ const ServicesData = [
         "price": "194",
         "img": "https://scontent.fdac2-1.fna.fbcdn.net/v/t1.0-9/125198426_1074259753007068_5787106617056582981_o.png?_nc_cat=110&ccb=2&_nc_sid=730e14&_nc_eui2=AeEhzGha8B4eYPjWnEU-5X7EamkrXoDrY79qaStegOtjv9G3wDx8My7DoSpxl6fEGtHP58Hjxua_BsfCko_c-bMa&_nc_ohc=j2EUhSpf-XoAX-gtjXB&_nc_ht=scontent.fdac2-1.fna&oh=b4967b6ee57e23f8adfa4112af93ba34&oe=5FD804A1",
         "bad": 3,
-        "bathroom": 2,
+        "bathroom": 23,
     }
 ]
 
