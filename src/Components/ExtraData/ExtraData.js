@@ -8,9 +8,9 @@ const ExtraDataProvider = (props) => {
 
     //dashboard true false condition
     const [seeData, setSeeData] = useState({
-        order: true,
+        order: false,
         serviceClient: false,
-        serviceAdmin: false,
+        serviceAdmin: true,
     })
 
 
