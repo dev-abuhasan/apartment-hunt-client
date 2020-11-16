@@ -120,6 +120,7 @@ const HomeDetails = () => {
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
         </Container>
     );
