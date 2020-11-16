@@ -4,6 +4,7 @@ import Login from '../AuthData/Login';
 import PrivateRoute from '../AuthData/PrivateRoute';
 import Dashboard from '../Dashboard/Dashboard';
 import Home from './Home/Home';
+import HomeDetails from './Home/HomeDetails';
 import NotFoundPages from './ShearCompo/NotFoundPages';
 
 const Routes = () => {
@@ -15,6 +16,8 @@ const Routes = () => {
             <PrivateRoute exact path="/dashboard">
                 <Dashboard />
             </PrivateRoute>
+
+            <Route path="/details" component={HomeDetails} />;
 
             <Route path="/login" component={Login} />;   
             <Route path="*" component={NotFoundPages} />
