@@ -10,20 +10,16 @@ const ExtraDataProvider = (props) => {
     const [seeData, setSeeData] = useState({
         order: false,
         serviceClient: false,
-        serviceAdmin: false,
-        review: false,
-        addService: false,
-        makeAdmin: false
+        serviceAdmin: true,
     })
+
+
     const ClickShowData = (e) => {
         if (e === "order") {
             setSeeData({
                 order: true,
                 serviceClient: false,
-                serviceAdmin: false,
-                review: false,
-                addService: false,
-                makeAdmin: false
+                serviceAdmin: false
             })
         }
         if (e === "services-list-admin") {
@@ -31,19 +27,6 @@ const ExtraDataProvider = (props) => {
                 order: false,
                 serviceClient: false,
                 serviceAdmin: true,
-                review: false,
-                addService: false,
-                makeAdmin: false
-            })
-        }
-        if (e === "review") {
-            setSeeData({
-                order: false,
-                serviceClient: false,
-                serviceAdmin: false,
-                review: true,
-                addService: false,
-                makeAdmin: false
             })
         }
         if (e === "services-list") {
@@ -51,58 +34,32 @@ const ExtraDataProvider = (props) => {
                 order: false,
                 serviceClient: true,
                 serviceAdmin: false,
-                review: false,
-                addService: false,
-                makeAdmin: false
             })
         }
-        if (e === "add-service") {
-            setSeeData({
-                order: false,
-                serviceClient: false,
-                serviceAdmin: false,
-                review: false,
-                addService: true,
-                makeAdmin: false
-            })
-        }
-        if (e === "make-admin") {
-            setSeeData({
-                order: false,
-                serviceClient: false,
-                serviceAdmin: false,
-                review: false,
-                addService: false,
-                makeAdmin: true
-            })
-        }
-
     }
-
 
     //check admin
     const getEmail = sessionStorage.getItem('user');
     const [Admin, setAdmin] = useState(null);
     const [oldUser, setOldUser] = useState(true);
 
-return (
-    <Provider value={
-        {   
-            seeData,
-            getEmail,
-            Admin,
-            oldUser,
-            setOldUser,
-            setAdmin,
-            setSeeData,
-            ClickShowData,
-        }
-    }>
-        {props.children}
-    </Provider>
-)
+    return (
+        <Provider value={
+            {
+                seeData,
+                getEmail,
+                Admin,
+                oldUser,
+                setOldUser,
+                setAdmin,
+                setSeeData,
+                ClickShowData,
+            }
+        }>
+            {props.children}
+        </Provider>
+    )
 
 }
-
 
 export { ExtraDataProvider, Consumer as UserConsumer, Context as ExtraDataContext };

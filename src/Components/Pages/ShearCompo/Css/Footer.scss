@@ -1,0 +1,33 @@
+.footer-area{
+    background: #275A53;
+    color: #fff;
+    background-size: cover;
+}
+
+.footer-area li{
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+.social-media .icon{
+    height: 40px;
+    width: 40px;
+    color: #1cc7c1;
+    border-radius: 50%;
+    border: 1px solid #6ACECE;
+    padding: 10px;
+}
+.social-media .active-icon{
+    background-color: #6ACECE ;
+    color:white;
+}
+.menuTitle{
+    color:white;
+    font-weight: bold;
+}
+.menuTitleImg{
+    position: relative;
+}
+.menuTitleImg img{
+    width: 25px;
+}
