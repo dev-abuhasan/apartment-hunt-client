@@ -25,7 +25,7 @@ const HomeDetails = () => {
 
     return (
 
-        <>
+        <Container>
             <Navbars></Navbars>
             <section>
                 <div className="container-fluid row p-5">
@@ -122,7 +122,6 @@ const HomeDetails = () => {
                     </div>
             </section>
         </Container>
-        </>
     );
 };
 
