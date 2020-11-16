@@ -5,7 +5,7 @@ import Formsy, { addValidationRule } from 'formsy-react';
 import MyInput from './MyInput';
 import { useHistory, useLocation } from 'react-router-dom';
 import google from '../images/icons/google.png';
-import facebookIcon from '../images/logos/Group 2.png'
+import facebookIcon from '../images/icons/facebook.png'
 import { AuthContext } from './Auth';
 import Navbars from '../Pages/ShearCompo/Navbars';
 import { ExtraDataContext } from '../ExtraData/ExtraData';
@@ -41,7 +41,7 @@ const Login = () => {
     //redirect to path settings
     const location = useLocation();
     const history = useHistory()
-    let { from } = location.state || { from: { pathname: "/" } };
+    let { from } = location.state || { from: { pathname: "/dashboard" } };
 
     //google sign in 
     const handGoogleSign = () => {

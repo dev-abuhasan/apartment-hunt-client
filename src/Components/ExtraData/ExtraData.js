@@ -8,9 +8,9 @@ const ExtraDataProvider = (props) => {
 
     //dashboard true false condition
     const [seeData, setSeeData] = useState({
-        order: true,
+        order: false,
         serviceClient: false,
-        serviceAdmin: false,
+        serviceAdmin: true,
     })
 
 
@@ -38,7 +38,6 @@ const ExtraDataProvider = (props) => {
         }
     }
 
-
     //check admin
     const getEmail = sessionStorage.getItem('user');
     const [Admin, setAdmin] = useState(null);
@@ -62,6 +61,5 @@ const ExtraDataProvider = (props) => {
     )
 
 }
-
 
 export { ExtraDataProvider, Consumer as UserConsumer, Context as ExtraDataContext };
