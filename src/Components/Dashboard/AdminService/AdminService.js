@@ -11,14 +11,13 @@ const AdminService = () => {
 
     const [adminService, setAdminService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/all-order-data/admin?email=${getEmail}`)
+        fetch(`http://localhost:5000/all`)
             .then(res => res.json())
-            .then(data => setAdminService(data))
+            .then(data => {
+                setAdminService(data)
+            })
     }, [getEmail]);
-
     const handleUpdate = (id, strings) => {
-
-
         if (strings === 'Done') {
             const statusOption = 'Done';
             fetch(`http://localhost:5000/update-statue/${id}`, {
@@ -78,8 +77,8 @@ const AdminService = () => {
                     <tr className="">
                         <th className="">Name</th>
                         <th className="ww-25">Email Id</th>
-                        <th className="">Service</th>
-                        <th className="w-25">Project Details</th>
+                        <th className="">Phone</th>
+                        <th className="w-25">Massage</th>
                         <th className="">Status</th>
                     </tr>
                 </thead>
@@ -88,8 +87,8 @@ const AdminService = () => {
                         <tr key={data._id}>
                             <td>{data.name}</td>
                             <td>{data.email}</td>
-                            <td>{data.courseCategory}</td>
-                            <td>{data.projectDetails}</td>
+                            <td>{data.phone}</td>
+                            <td>{data.massage}</td>
                             <td>
                                 <div className="dropdown">
                                     {data.statusOption === "Pending" || data.statusOption === "Done" ?
@@ -98,11 +97,11 @@ const AdminService = () => {
                                             <span className="ml-2">{downIcon}</span>
                                         </span> : ""
                                     }
-                                    {data.statusOption === 'onGoing'?
+                                    {data.statusOption === 'onGoing' ?
                                         <span className="text-warning">
                                             {data.statusOption}
                                             <span className="ml-2">{downIcon}</span>
-                                        </span>: ''
+                                        </span> : ''
                                     }
                                     <div className="dropdown-content">
                                         {data.statusOption !== "Done" ?

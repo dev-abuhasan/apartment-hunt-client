@@ -1,38 +1,56 @@
 import React from 'react';
-import './Css/Header.scss'
-import { Button, Col, Form } from 'react-bootstrap';
+import './Css/Footer.scss';
+import FooterCol from './FooterCol';
+import facebook from '../../images/logos/Group 2.png';
+import ins from '../../images/logos/Vector-1.png';
+import lin from '../../images/logos/Vector-2.png';
+import google from '../../images/logos/Vector-3.png';
 
 const Footer = () => {
-    const onSubmits = (e) => {
+    const noNamed = [
+        { name: "H#340(4th Floor), Road #24," },
+        { name: "Now DOHS, Mohakhali, Dhaka, BAngladash" },
+        { name: "Phono: 018XXXXXXXXX" },
+        { name: "E-mail: info@company.com" }
+    ]
+    const ourAddress = [
+        { name: `We are the top real estate agenay in sydney. with agents available to cnswer any question 24/7.` }
 
-        e.preventDefault()
-    }
-
+    ]
+    const oralHealth = [
+        { name: "About" },
+        { name: "Sito Map" },
+        { name: "Support Center" },
+        { name: "Terms Conditions" },
+        { name: "Submit Usting" }
+    ]
+    const services = [
+        { name: "Quick Links" },
+        { name: "Rantals" },
+        { name: "Contact" },
+        { name: "Terms Conditions" },
+        { name: "Our Blog" }
+    ]
     return (
-        <footer id="footer" className="p-5 row">
-            <Col md={1} className="">
-
-            </Col>
-            <Col md={5} className="footer-title">
-                <h2 className="mb-3">Let us handle your project, professionally.</h2>
-                <p>With well written codes, We build amazing apps for all platforms, mobile and web apps in general.</p>
-            </Col>
-            <Col md={6} className="">
-                <Form onSubmit={e => onSubmits(e)} method="post">
-                    <Form.Control type="email" size="lg" placeholder="Your email address" name="email" />
-                    <br />
-                    <Form.Control type="text" size="lg" placeholder="Your name / Company's name" name="address" />
-                    <br />
-                    <Form.Control as="textarea" rows="6" size="lg" placeholder="Your Message" name="message" />
-                    <br />
-                    <Button className="login-btn w-25 footer-submit" variant="dark" type="submit">
-                        Send
-                    </Button>
-                </Form>
-            </Col>
-            <Col md={12} className="text-center pt-5 mt-5 copyright">
-                Copyright Orange labs 2020
-            </Col>
+        <footer className="footer-area clear-both">
+            <div className="container pt-5">
+                <div className="row py-5">
+                    <FooterCol key={1} menuTitle={"!"} menuItems={noNamed} />
+                    <FooterCol key={2} menuTitle="Company" menuItems={services} />
+                    <FooterCol key={3} menuTitle="Quik Links" menuItems={oralHealth} />
+                    <FooterCol key={4} menuTitle="About us" menuItems={ourAddress}>
+                        <div className="mt-5">
+                            <img style={{ width: '25px', marginLeft: '25px' }} src={facebook} alt="" />
+                            <img style={{ width: '25px', marginLeft: '25px' }} src={ins} alt="" />
+                            <img style={{ width: '25px', marginLeft: '25px' }} src={lin} alt="" />
+                            <img style={{ width: '25px', marginLeft: '25px' }} src={google} alt="" />
+                        </div>
+                    </FooterCol>
+                </div>
+                <div className="copyRight text-center pb-3">
+                    <p className="pb-0 mb-0"> © {(new Date()).getFullYear()} All Rights Reserved</p>
+                </div>
+            </div>
         </footer>
     );
 };

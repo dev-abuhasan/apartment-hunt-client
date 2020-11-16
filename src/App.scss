@@ -1,8 +1,19 @@
 .login-btn{
   background-color: #275A53;
   color: #fff!important;
-  padding: 8px 25px;
-  border-radius: 2px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #bbbbbb;
+  display: inline-block;
+  width: 100%;
+  border: none;
+  transition: all 0.5s;
+}
+.disabled-btn {
+  background-color: #275A53;
+  color: #fff!important;
+  padding: 8px 20px;
+  border-radius: 3px;
   box-shadow: 0 0 5px #bbbbbb;
   display: inline-block;
   width: 100%;
@@ -50,4 +61,21 @@ img{
 }
 .create-account{
   color: #275A53;
+}
+.errorSuccess{
+  color: #10a110;
+}
+
+.responsive-mobile-btn{
+  background-color:#275A53!important;
+}
+.title_color{
+  color: #16322E;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+#request-btn{
+  background-color: #275A53;
+  border: none;
 }
