@@ -5,7 +5,6 @@ import facebook from '../../images/logos/Group 2.png';
 import ins from '../../images/logos/Vector-1.png';
 import lin from '../../images/logos/Vector-2.png';
 import google from '../../images/logos/Vector-3.png';
-import locationIcon from '../../images/logos/location_Icon.png';
 
 const Footer = () => {
     const noNamed = [

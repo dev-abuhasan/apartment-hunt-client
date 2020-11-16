@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Button, Col, Row } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 import './Css/Header.scss';
 import './Css/MediaQuery.scss';
@@ -9,17 +9,13 @@ import LocationOnIcon from '../../images/logos/map-marker-alt-solid 1.png';
 import bad from "../../images/logos/bed 1.png";
 import bath from "../../images/logos/bath 1.png";
 
-import homeImg from '../../images/Rectangle 394.png';
-
 const Services = () => {
     const [serviceData, setServiceData] = useState([]);
-    console.log(serviceData);
 
     useEffect(() => {
         fetch(`http://localhost:5000/all`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setServiceData(data);
             })
     }, [])
