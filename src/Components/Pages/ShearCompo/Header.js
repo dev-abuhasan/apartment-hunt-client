@@ -10,8 +10,6 @@ const Header = () => {
         <header id="header-main" className="">
             <Container>
                 <Navbars />
-                <HeaderBottom />
-                <GoBlobsAni />
             </Container>
         </header>
     );
