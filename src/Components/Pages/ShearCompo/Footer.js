@@ -1,38 +1,56 @@
 import React from 'react';
-import './Css/Header.scss'
+import './Css/Footer.scss';
 import { Button, Col, Form } from 'react-bootstrap';
+import FooterCol from './FooterCol';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => {
-    const onSubmits = (e) => {
-
-        e.preventDefault()
-    }
-
+    const noNamed = [
+        {name: "H#340(4th Floor), Road #24,"},
+        {name: "Now DOHS, Mohakhali, Dhaka, BAngladash"},
+        {name: "Phono: 018XXXXXXXXX"},
+        {name: "E-mail: info@company.com"}
+    ]
+    const ourAddress = [
+        {name: `We are the top real estate agenay in sydney. with agents available to cnswer any question 24/7.`}
+       
+    ]
+    const oralHealth = [
+        {name: "Abut"},
+        {name: "Sito Map"},
+        {name: "Support Center"},
+        {name: "Terms Conditions"},
+        {name: "Submit Usting"}
+    ]
+    const services = [
+        {name: "Quick Links"},
+        {name: "Rantals"},
+        {name: "Contact"},
+        {name: "Terms Conditions"},
+        {name: "Our Blog"}
+    ]
     return (
-        <footer id="footer" className="p-5 row">
-            <Col md={1} className="">
-
-            </Col>
-            <Col md={5} className="footer-title">
-                <h2 className="mb-3">Let us handle your project, professionally.</h2>
-                <p>With well written codes, We build amazing apps for all platforms, mobile and web apps in general.</p>
-            </Col>
-            <Col md={6} className="">
-                <Form onSubmit={e => onSubmits(e)} method="post">
-                    <Form.Control type="email" size="lg" placeholder="Your email address" name="email" />
-                    <br />
-                    <Form.Control type="text" size="lg" placeholder="Your name / Company's name" name="address" />
-                    <br />
-                    <Form.Control as="textarea" rows="6" size="lg" placeholder="Your Message" name="message" />
-                    <br />
-                    <Button className="login-btn w-25 footer-submit" variant="dark" type="submit">
-                        Send
-                    </Button>
-                </Form>
-            </Col>
-            <Col md={12} className="text-center pt-5 mt-5 copyright">
-                Copyright Orange labs 2020
-            </Col>
+        <footer className="footer-area clear-both">
+            <div className="container pt-5">
+                <div className="row py-5">
+                    <FooterCol key={1} menuTitle={"."} menuItems={noNamed}/>
+                    <FooterCol key={2} menuTitle="Company" menuItems={services}/>
+                    <FooterCol key={3} menuTitle="Quik Links" menuItems={oralHealth}/>
+                    <FooterCol key={4} menuTitle="About us" menuItems={ourAddress}> 
+                        <ul className="social-media list-inline">
+                            <li className="list-inline-item"><a href="//facebook.com"><FontAwesomeIcon className="icon active-icon" /></a></li>
+                            <li className="list-inline-item"><a href="//google.com"><FontAwesomeIcon className="icon" /></a></li>
+                            <li className="list-inline-item"><a href="//instagram.com"><FontAwesomeIcon className="icon" /></a></li>
+                        </ul>
+                        <div className="mt-5">
+                            <h6>icon</h6>
+                            </div>
+                    </FooterCol>
+                </div>
+                <div className="copyRight text-center">
+                    <p>Copyright {(new Date()).getFullYear()} All Rights Reserved</p>
+                </div>
+            </div>
         </footer>
     );
 };
