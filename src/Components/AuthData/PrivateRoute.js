@@ -6,6 +6,7 @@ import { AuthContext } from './Auth';
 const PrivateRoute = ({ children, ...rest }) => {
     const auth = useContext(AuthContext);
     const getUser = sessionStorage.getItem('user');
+    
     return (
         <Route
             {...rest}
