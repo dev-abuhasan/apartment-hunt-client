@@ -26,63 +26,47 @@
 .create-account{
     text-decoration: underline;
 }
-
-.app{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   
-  .app h3{
-    text-shadow: 1px 1px 4px black;
-    font-size: 1.5rem;
-    margin-bottom: 0;
-  }
-  
-  .app h3 b{
-    color: rgb(252, 212, 33);
-  }
-  
-  .form{
-    background-color: #ffffff;
-    padding:40px;
-    border-radius: 8px;
-  }
-  .input-row{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  .input-row span{
-    color:rgb(255, 139, 110)
-  }
-  input{
-    height: 36px;
-    padding:10px;
-    border: none;
-    border-bottom: 1px solid #000;
-    margin-top: 10px;
-    margin-bottom: 4px;
-  }
-  #login-checkbox{
-      height: 10px;
-      margin-right: 3px;
-  }
- .forgot-pass p{
-     margin-bottom: 0;
- }
-  ::placeholder {
-      color: #000000;
-      font-weight: bold;
-     
-  }
-  .other-sign-option{
-      margin-top: 25px;
-  }
-  #form-check-input{
-    margin-top: 7px;
-    width: 10px;
+.form{
+  background-color: #ffffff;
+  padding:40px;
+  border-radius: 8px;
+}
+.input-row{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.input-row span{
+  color:rgb(255, 139, 110)
+}
+input{
+  height: 36px;
+  padding:10px;
+  border: none;
+  border-bottom: 1px solid #000;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+#login-checkbox{
     height: 10px;
+    margin-right: 3px;
+}
+.forgot-pass p{
+    margin-bottom: 0;
+}
+::placeholder {
+    color: #000000;
+    font-weight: bold;
+    font-size: 12px!important;
+}
+.other-sign-option{
+    margin-top: 25px;
+}
+#form-check-input{
+  margin-top: 7px;
+  width: 10px;
+  height: 10px;
 }
 .fromSection{
     box-shadow: 0px 0 2px #363535;

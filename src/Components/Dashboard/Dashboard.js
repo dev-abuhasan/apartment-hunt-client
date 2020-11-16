@@ -6,11 +6,9 @@ import { ExtraDataContext } from '../ExtraData/ExtraData';
 import Oder from './Order/Oder';
 import Sidebar from './Sidebar/Sidebar';
 import ClientService from './ClientService/ClientService';
-import Review from './Review/Review';
 import AdminService from './AdminService/AdminService';
-import AddService from './AddService/AddService';
-import MakeAdmin from './MakeAdmin/MakeAdmin';
 import { Link } from 'react-router-dom';
+import logo from '../images/logos/Logo.png';
 
 const Dashboard = () => {
     document.title = "Dashboard Page";
@@ -31,11 +29,10 @@ const Dashboard = () => {
             <Row className="p-4">
                 <Col lg={2} md={3} className="pt-3">
                     <h3 className="dash-title">
-                        <Link to="/">
-                            {"Login Here"}
+                        <Link to="/" id="header-logo">
+                            <img src={logo} alt="logo.png" />
                         </Link>
                     </h3>
-
                     <Sidebar />
                 </Col>
                 <Col lg={10} md={9} >
@@ -44,17 +41,14 @@ const Dashboard = () => {
                         <Nav className="mr-auto">
                             <Nav.Link className="text-dark">
                                 <h3 className="dash-title">
-                                    {seeData.order === true ? "Order" : ""}
-                                    {seeData.serviceClient === true ? "Service List" : ""}
-                                    {seeData.serviceAdmin === true ? "Order List" : ""}
-                                    {seeData.review === true ? "Review" : ""}
-                                    {seeData.addService === true ? "Add Service" : ""}
-                                    {seeData.makeAdmin === true ? "Make Admin" : ""}
+                                    {seeData.serviceAdmin === true ? "Booking List" : ""}
+                                    {seeData.order === true ? "Add Rent House" : ""}
+                                    {seeData.serviceClient === true ? "My Rent" : ""}
                                 </h3>
                             </Nav.Link>
                         </Nav>
                         <Nav className="ml-auto">
-                            <NavDropdown title={`${getName !== null ? getName : window.location.reload()}`} id="basic-nav-dropdown">
+                            <NavDropdown title={`${getName !== null ? getName : "Undefined"}`} id="basic-nav-dropdown">
                                 <NavDropdown.Item
                                     onClick={() => handLogOut()}
                                     className="logout-btn"
@@ -65,10 +59,7 @@ const Dashboard = () => {
                     <section id="content-section">
                         {seeData.order === true ? <Oder /> : ""}
                         {seeData.serviceClient === true ? <ClientService /> : ""}
-                        {seeData.review === true ? <Review /> : ""}
                         {seeData.serviceAdmin === true ? <AdminService /> : ""}
-                        {seeData.addService === true ? <AddService /> : ""}
-                        {seeData.makeAdmin === true ? <MakeAdmin /> : ""}
                     </section>
                 </Col>
             </Row>

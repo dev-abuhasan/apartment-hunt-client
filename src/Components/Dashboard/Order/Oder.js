@@ -18,11 +18,11 @@ const Oder = () => {
     const getEmail = sessionStorage.getItem('user');
 
     const [formData, updateFormData] = useState({
-        name: getName,
-        email: getEmail,
-        courseCategory: "",
-        projectDetails: "",
+        serviceTitle: getName,
+        location: "",
+        bathroomPrice: "",
         price: "",
+        bedroomPrice: "",
         statusOption: "Pending",
         image: null
     });
@@ -35,14 +35,13 @@ const Oder = () => {
 
     const onSubmits = (e) => {
         const formsData = new FormData();
-        formsData.append("name", formData.name);
-        formsData.append("email", formData.email);
-        formsData.append("courseCategory", formData.courseCategory);
-        formsData.append("projectDetails", formData.projectDetails);
+        formsData.append("serviceTitle", formData.serviceTitle);
+        formsData.append("location", formData.location);
+        formsData.append("bathroomPrice", formData.bathroomPrice);
         formsData.append("price", formData.price);
+        formsData.append("bedroomPrice", formData.bathroomPrice);
         formsData.append("statusOption", formData.statusOption);
         formsData.append("image", formData.image);
-
 
         fetch(`http://localhost:5000/add-order`, {
             method: 'POST',
@@ -50,10 +49,10 @@ const Oder = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.success === true){
+                if (data.success === true) {
                     alert('Order added successfully');
                 }
-                if(data.success === false){
+                if (data.success === false) {
                     alert('Order added failed');
                 }
             })
@@ -63,35 +62,35 @@ const Oder = () => {
         e.preventDefault();
     }
     return (
-        <Form className="row" onSubmit={e => onSubmits(e)}>
-            <div className="col-md-9">
-                <label htmlFor="" className="text-success">Your Name : </label>
-                <Form.Control type="text" placeholder="Your Name / Company's Name" name="name" required onBlur={(e) => getData(e)} defaultValue={getName} />
-
-                <label htmlFor="" className="text-success">Your Email : </label>
-                <Form.Control type="email" placeholder="Enter email" required onChange={(e) => getData(e)} name="email" value={getEmail} />
-                <br />
-                <Form.Control type="text" placeholder="Category Graphics, Web or Else" name="courseCategory" required onBlur={(e) => getData(e)} />
-                <br />
-                <Form.Control as="textarea" rows="3" placeholder="Project Details" name="projectDetails" onBlur={(e) => getData(e)} required />
-                <br />
-                <div className="row align-items-center">
-                    <div className="col-md-5">
-                        <Form.Control type="text" placeholder="Price" name="price" required onBlur={(e) => getData(e)} pattern="[0-9]+" />
-                        <small className="ml-2 text-warning">only accept numbers</small>
-                    </div>
-                    <div className="col-md-7">
+        <Form className="row px-4" onSubmit={e => onSubmits(e)}>
+            <div className="col-md-6">
+                <label htmlFor="" className="form-label-title">Service Title : </label>
+                <Form.Control type="text" placeholder="Enter title" name="serviceTitle" required onBlur={(e) => getData(e)} defaultValue={getName} />
+                <label htmlFor="" className="form-label-title">Location : </label>
+                <Form.Control type="text" placeholder="Enter Location" name="location" required onBlur={(e) => getData(e)} />
+                <label htmlFor="" className="form-label-title">No Of Bathroom : </label>
+                <Form.Control type="number" placeholder="Price / only accept numbers" name="bathroomPrice" required onChange={(e) => getData(e)} pattern="[0-9]+" />
+            </div>
+            <div className="col-md-6">
+                <label htmlFor="" className="form-label-title">Price : </label>
+                <Form.Control type="number" placeholder="Price / only accept numbers" name="price" required onChange={(e) => getData(e)} pattern="[0-9]+" />
+                <label htmlFor="" className="form-label-title">No Of Bedroom : </label>
+                <Form.Control type="number" placeholder="Price / only accept numbers" name="bedroomPrice" required onChange={(e) => getData(e)} pattern="[0-9]+" />
+                <div className="">
+                    <div className="">
+                        <label htmlFor="" className="form-label-title">Thumbnail: </label>
+                        <br />
                         <Form.File placeholder="Name" name="image" required onBlur={(e) => getUploadFils(e)} accept="image/*" id="actual-btn" className="file-input" />
                         <label htmlFor="actual-btn" className="btn btn-outline-success responsive-mobile-width">
-                            {uploadIcon} Upload <span className="responsive-file"> project file</span>
+                            {uploadIcon} Upload <span className="responsive-file"> Image</span>
                         </label>
                         <span id="file-chosen"></span>
                     </div>
                 </div>
                 <br />
             </div>
-            <div className="col-md-12 ">
-                <Button variant="dark" type="submit" className="responsive-mobile-btn">
+            <div className="col-md-12 =">
+                <Button variant="dark" type="submit" className="responsive-mobile-btn float-right">
                     Submit
                 </Button>
             </div>
