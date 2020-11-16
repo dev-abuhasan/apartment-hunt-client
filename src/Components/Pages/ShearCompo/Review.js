@@ -32,7 +32,7 @@ const Review = () => {
             <div className="d-flex justify-content-center">
                 <div className="w-75 row mt-5">
                     {reviewData.map(review =>
-                            <div className="col-md-4 text-center service">
+                            <div key={review.id} className="col-md-4 text-center service">
                                 <img style={{ width: '100px' }} src={review.img} alt="" />
                                 <h5 className="mt-3 mb-3 card-color">{review.name}</h5>
                                 <p className="text-secondary">{review.Description}</p>

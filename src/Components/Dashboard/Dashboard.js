@@ -8,7 +8,7 @@ import Sidebar from './Sidebar/Sidebar';
 import ClientService from './ClientService/ClientService';
 import AdminService from './AdminService/AdminService';
 import { Link } from 'react-router-dom';
-import logo from '../images/logos/Logo.png';
+import logo from '../images/logos/logo.png';
 
 const Dashboard = () => {
     document.title = "Dashboard Page";

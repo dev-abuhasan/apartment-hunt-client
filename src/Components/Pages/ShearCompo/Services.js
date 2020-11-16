@@ -47,7 +47,7 @@ const Services = () => {
                 <h2 className="card-color">Discover the latest Rent<br />available today</h2>
             </div>
             {serviceData.length > 0 ? serviceData.map(data =>
-                <Card className="card-Style" style={{ width: '18rem' }}>
+                <Card className="card-Style" style={{ width: '18rem' }} key={data.id}>
                     <Card.Img variant="top" src={data.img} />
                     <Card.Body>
                         <Card.Title className="card-color">{data.name}</Card.Title>

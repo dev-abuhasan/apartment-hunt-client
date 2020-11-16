@@ -9,8 +9,8 @@ const HeaderBottom = () => {
         
         <div className="header-Background" style={{ textAlign: 'center', marginTop: '3%', marginBottom: '3%' }}>
             <h1>FIND YOUR HOUSE RENT</h1><br />
-            <input ClassName="inputStyle" type="text" placeholder="Search..." />
-            <button ClassName="batStyle" type="button" class="btn btn-primary">Find Now</button>
+            <input className="inputStyle" type="text" placeholder="Search..." />
+            <button className="batStyle" type="button" className="btn btn-primary">Find Now</button>
         </div>
     );
 };
