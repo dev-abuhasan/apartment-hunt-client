@@ -3,11 +3,13 @@ import { Container } from 'react-bootstrap';
 import './Css/Style.scss';
 import Formsy, { addValidationRule } from 'formsy-react';
 import MyInput from './MyInput';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import google from '../images/icons/google.png';
-import facebookIcon from '../images/logos/Group 2.png'
+import facebookIcon from '../images/icons/facebook.png'
 import { AuthContext } from './Auth';
 import Navbars from '../Pages/ShearCompo/Navbars';
+import { ExtraDataContext } from '../ExtraData/ExtraData';
+import SignUp from './Signup';
 
 //form Validation check by warnings START
 const errors = {
@@ -39,7 +41,7 @@ const Login = () => {
     //redirect to path settings
     const location = useLocation();
     const history = useHistory()
-    let { from } = location.state || { from: { pathname: "/" } };
+    let { from } = location.state || { from: { pathname: "/dashboard" } };
 
     //google sign in 
     const handGoogleSign = () => {
@@ -69,49 +71,64 @@ const Login = () => {
         history.push(url);
     }
 
+    //ExtraData Context 
+    const extraData = useContext(ExtraDataContext);
+    const { oldUser, setOldUser } = extraData;
+    const checkUser = (e) => {
+        if (e === true) {
+            setOldUser(false);
+        }
+        if (e === false) {
+            setOldUser(true);
+        }
+    }
+
     return (
         <Container id="login">
             <Navbars />
             <br />
             <br />
             <section className="fromSection col-lg-7 col-md-8 mx-auto">
-                <Formsy className='form w-100' onValidSubmit={submitLogin} onValid={enableButton} onInvalid={disableButton}>
-                    <div className="title-login">
-                        <h3 className="text-dark">Login</h3>
-                    </div>
-                    <MyInput label="" type="text" name="email" validations="maxLength:60,isEmail" validationErrors={errors} placeholder="Email address..." required />
-
-                    <MyInput label="" type="password" name="password" validations="minLength:6" validationErrors={errors} placeholder="password..." required />
-
-                    <div className="d-flex align-items-center justify-content-between">
-                        <div className="">
-                            <input type="checkbox" id="login-checkbox" required />
-                            <span className="color_000">Remember me</span>
+                {oldUser === true ?
+                    <Formsy className='form w-100' onValidSubmit={submitLogin} onValid={enableButton} onInvalid={disableButton}>
+                        <div className="title-login">
+                            <h3 className="text-dark">Login</h3>
                         </div>
-                        <div className="text-dark cursor-pointer forgot-pass color_ggg" onClick={() => changePath()}><p className="">Forgot password</p></div>
-                    </div>
+                        <MyInput label="" type="text" name="email" validations="maxLength:60,isEmail" validationErrors={errors} placeholder="Username or Email" required />
 
-                    <br />
-                    <button type="submit" disabled={!canSubmit} className={!canSubmit?"login-btn":"success-btn"}>
-                        Login
+                        <MyInput label="" type="password" name="password" validations="minLength:6" validationErrors={errors} placeholder="password..." required />
+
+                        <div className="d-flex align-items-center justify-content-between">
+                            <div className="">
+                                <input type="checkbox" id="login-checkbox" required />
+                                <span className="color_000">Remember me</span>
+                            </div>
+                            <div className="text-dark cursor-pointer forgot-pass color_ggg" onClick={() => changePath()}><p className="">Forgot password</p></div>
+                        </div>
+
+                        <br />
+                        <button type="submit" disabled={!canSubmit} className={!canSubmit ? "disabled-btn" : "success-btn"}>
+                            Login
                     </button>
 
-                    {error
-                        ? <p><span className="text-danger w-50">{error}</span></p>
-                        : <p></p>
-                    }
-                    <br />
+                        {error
+                            ? <p><span className="text-danger w-50">{error}</span></p>
+                            : <p></p>
+                        }
+                        <br />
 
-                    <p className="text-center text-dark"> Don't have an account?
-                    <Link className="Link create-account" to='/sign-up'>
-                           Create an account
-                    </Link>
-                    </p>
-                </Formsy>
+                        <p className="text-center text-dark"> Don't have an account?
+                        <span className="Link create-account ml-1" onClick={() => checkUser(oldUser)}>
+                                Create an account
+                        </span>
+                        </p>
+                    </Formsy> : <SignUp />
+                }
+
             </section>
             <div className="other-sign-option col-md-5 mx-auto">
                 <div className="text-center">
-                ------------------- or -------------------
+                    ------------------- or -------------------
                 </div>
                 <br />
                 <div className="">

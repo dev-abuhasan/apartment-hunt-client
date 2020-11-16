@@ -46,6 +46,8 @@ const UserAuthProvider = (props) => {
                     email: email,
                     photo: photoURL
                 }
+                sessionStorage.setItem('name', signedIUser.name);
+                sessionStorage.setItem('user', signedIUser.email);
                 setUser(signedIUser);
                 authStateChange();
                 // storeAuthJwtToken();
@@ -69,8 +71,10 @@ const UserAuthProvider = (props) => {
                     email: email,
                     photo: photoURL
                 }
+                sessionStorage.setItem('name', signedIUser.name);
+                sessionStorage.setItem('user', signedIUser.email);
                 setUser(signedIUser);
-                storeAuthJwtToken()
+                storeAuthJwtToken();
             }).catch(error => {
                 const errorMessage = error.message;
                 const email = error.email;
@@ -115,7 +119,9 @@ const UserAuthProvider = (props) => {
         return firebase.auth().signInWithEmailAndPassword(email, password)
             .then((result) => {
                 const name = result.user.displayName;
-                setUser(name);
+                const email = result.user.email;
+                sessionStorage.setItem('name', name);
+                sessionStorage.setItem('user', email);
                 storeAuthJwtToken()
                 return result;
             })
@@ -133,8 +139,8 @@ const UserAuthProvider = (props) => {
                 sessionStorage.setItem("name", user.displayName);
                 sessionStorage.setItem("photo", user.photoURL);
             } else {
-               console.log("Logout success");
-              
+                console.log("Logout success");
+
             }
         });
     }
@@ -142,7 +148,7 @@ const UserAuthProvider = (props) => {
     const storeAuthJwtToken = () => {
         firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
             .then(idToken => {
-                console.log(idToken);
+                // console.log(idToken);
                 sessionStorage.setItem('token', idToken);
             }).catch(error => {
                 console.log(error);

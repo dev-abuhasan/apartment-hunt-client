@@ -1,0 +1,16 @@
+.service{
+    margin-bottom: 30px;
+    transition: .5s;
+    padding-top: 5px;
+}
+.service:hover{
+    transform: scale(1.1);
+    box-shadow: 10px 10px 40px #9D9D9D;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.taitle{
+    font-size:30px;
+    font-weight:700;
+    color:#265952;
+}
