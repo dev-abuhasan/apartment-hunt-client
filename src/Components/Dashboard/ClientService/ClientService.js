@@ -30,7 +30,7 @@ const ClientService = () => {
                                 <button className={data.statusOption === 'Done' ?
                                     'btn btn-done' : 'd-none'
                                 }>{data.statusOption}</button>
-                               <button className={data.statusOption === 'onGoing' ?
+                                <button className={data.statusOption === 'onGoing' ?
                                     'btn btn-onGoing' : 'd-none'
                                 }>{data.statusOption}</button>
                             </div>
