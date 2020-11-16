@@ -41,7 +41,7 @@ const Login = () => {
     //redirect to path settings
     const location = useLocation();
     const history = useHistory()
-    let { from } = location.state || { from: { pathname: "/" } };
+    let { from } = location.state || { from: { pathname: "/dashboard" } };
 
     //google sign in 
     const handGoogleSign = () => {

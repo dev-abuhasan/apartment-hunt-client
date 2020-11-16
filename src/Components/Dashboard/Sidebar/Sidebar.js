@@ -2,15 +2,14 @@ import React, { useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTaxi, faHome, faPlus, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { ExtraDataContext } from '../../ExtraData/ExtraData';
-import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
+// import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 const Sidebar = () => {
     const ExtraData = useContext(ExtraDataContext)
-    const { ClickShowData, seeData, setSeeData, getEmail, Admin, setAdmin } = ExtraData;
+    const { ClickShowData, seeData} = ExtraData;
     const taxiIcon = <FontAwesomeIcon icon={faTaxi} />
     const plusIcon = <FontAwesomeIcon icon={faPlus} />
     const HomeIcon = <FontAwesomeIcon icon={faHome} />
-
 
     // useEffect(() => {
     //     fetch(`http://localhost:5000/check-admin`, {

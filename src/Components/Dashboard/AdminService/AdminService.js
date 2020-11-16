@@ -11,9 +11,12 @@ const AdminService = () => {
 
     const [adminService, setAdminService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/all-order-data/admin?email=${getEmail}`)
+        fetch(`http://localhost:5000/all-services/`)
             .then(res => res.json())
-            .then(data => setAdminService(data))
+            .then(data => {
+                setAdminService(data)
+                console.log(data);
+            })
     }, [getEmail]);
     const handleUpdate = (id, strings) => {
         if (strings === 'Done') {
@@ -85,8 +88,8 @@ const AdminService = () => {
                         <tr key={data._id}>
                             <td>{data.name}</td>
                             <td>{data.email}</td>
-                            <td>{data.courseCategory}</td>
-                            <td>{data.projectDetails}</td>
+                            <td>{data.phone}</td>
+                            <td>{data.massage}</td>
                             <td>
                                 <div className="dropdown">
                                     {data.statusOption === "Pending" || data.statusOption === "Done" ?

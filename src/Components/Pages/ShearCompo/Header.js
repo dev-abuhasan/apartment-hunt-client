@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import GoBlobsAni from '../../SpringAni/GoBlobsAni';
 import './Css/Header.scss';
 import HeaderBottom from './HeaderBottom';
 import Navbars from './Navbars';

@@ -18,19 +18,13 @@ const Navbars = () => {
                         <Link to="/home" className="nav-item">Home</Link>
                     </Nav>
                     <Nav className="nav-menu">
-                        <Link to="/" className="nav-item">About</Link>
+                        <Link to="/" className="nav-item">Our Portfolio</Link>
                     </Nav>
                     <Nav className="nav-menu">
-                        <Link to="/" className="nav-item">Service</Link>
+                        <Link to="/" className="nav-item">Our Team</Link>
                     </Nav>
                     <Nav className="nav-menu">
-                        <Link to="/" className="nav-item">Concerns</Link>
-                    </Nav>
-                    <Nav className="nav-menu">
-                        <Link to="/" className="nav-item">Event</Link>
-                    </Nav>
-                    <Nav className="nav-menu">
-                        <Link to="/" className="nav-item">Contact</Link>
+                        <Link to="/" className="nav-item">Contact Us</Link>
                     </Nav>
                     <Nav className="nav-menu">
                         <Link to="/login" className="login-btn">Login</Link>
