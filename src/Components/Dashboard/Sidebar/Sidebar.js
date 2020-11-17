@@ -12,7 +12,7 @@ const Sidebar = () => {
     const HomeIcon = <FontAwesomeIcon icon={faHome} />
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/check-admin`, {
+    //     fetch(`https://quiet-depths-16852.herokuapp.com/check-admin`, {
     //         method: 'POST',
     //         headers: { 'Content-Type': 'application/json' },
     //         body: JSON.stringify({ email: getEmail })
