@@ -19,6 +19,7 @@ const Routes = () => {
             <Route exact path="/login" component={Login} />;
             <PrivateRoute path="/details/:id">
                 <HomeDetails />
+                
             </PrivateRoute>;
             <Route path="*" component={NotFoundPages} />
         </Switch>
