@@ -107,7 +107,7 @@ const Login = () => {
                         </div>
 
                         <br />
-                        <button type="submit" disabled={!canSubmit} className={!canSubmit ? "disabled-btn" : "success-btn"}>
+                        <button type="submit" disabled={!canSubmit} className={!canSubmit ? "disabled-btn" : "success-btn cursor-pointer"}>
                             Login
                     </button>
 
