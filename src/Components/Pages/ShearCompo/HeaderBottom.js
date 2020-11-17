@@ -5,8 +5,7 @@ import './Css/Header.scss';
 import './Css/MediaQuery.scss'
 
 const HeaderBottom = () => {
-    const {serviceData, setServiceData } = useContext(ServicesContext);
-    console.log("asd",serviceData);
+    const {setServiceData } = useContext(ServicesContext);
     const [filter, setFilter] = useState('')
 
     useEffect(() => {
