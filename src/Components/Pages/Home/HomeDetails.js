@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import img1 from '../../images/Rectangle 407.png';
 import img2 from '../../images/Rectangle 408.png';
 import img3 from '../../images/Rectangle 409.png';
@@ -11,7 +11,10 @@ import './HomeDetails.scss'
 
 const HomeDetails = () => {
     document.title = 'Home Details';
-    const [serviceData, setServiceData] = useState([])
+    const [serviceData, setServiceData] = useState([]);
+    const [getValuer, setGetValue] = useState([]);
+    const location = useLocation();
+    const history = useHistory()
 
     const { id } = useParams();
     useEffect(() => {
@@ -19,8 +22,54 @@ const HomeDetails = () => {
             .then(res => res.json())
             .then(data => {
                 setServiceData(data);
+                setGetValue(data[0])
+
             })
     }, [id])
+
+    const getName = sessionStorage.getItem('name');
+    const getEmail = sessionStorage.getItem('user');
+    const [formData, updateFormData] = useState({
+        name: getName,
+        phone: "",
+        email: getEmail,
+        massage: ""
+
+    });
+    
+    const getData = (e) => {
+        updateFormData({ ...formData, [e.target.name]: e.target.value.trim() });
+    }
+
+    const onSubmits = (e) => {
+        const formsData = new FormData();
+        formsData.append("name", formData.name);
+        formsData.append("phone", formData.phone);
+        formsData.append("email", formData.email);
+        formsData.append("massage", formData.massage);
+        formsData.append("serviceTitle", getValuer.serviceTitle);
+        formsData.append("price", getValuer.price);
+        formsData.append("id", getValuer._id);
+
+        fetch(`http://localhost:5000/add-rent`, {
+            method: 'POST',
+            body: formsData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success === true) {
+                    alert("Request Add Successfully... Hurray!")
+                }
+                if (data.success === false) {
+                    alert("Request Not Added... Sad!")
+                }
+            })
+            .then(() => {
+                let { from } = location.state || { from: { pathname: "/dashboard" } };
+                history.push(from);
+            })
+        e.preventDefault()
+    }
 
 
     return (
@@ -67,7 +116,7 @@ const HomeDetails = () => {
                                             <h3>${data.price}</h3>
                                         </div>
                                         <p>
-                                            3000 sq-ft, {"3"} Bedroom, Semi-furnished, Luxrious, South faching Apartment for Rent in Rangs Malancha, Melbourne.
+                                            3000 sq-ft, {data.bedroomNum} Bedroom, Semi-furnished, Luxrious, South faching Apartment for Rent in Rangs Malancha, Melbourne.
                                         </p>
                                     </div>
                                     <div className="project-title-sec mb-3">
@@ -103,24 +152,24 @@ const HomeDetails = () => {
                     </div>
                     <div className="col-md-4">
                         <div className=" p-3" style={{ backgroundColor: "#F4F4F4" }}>
-                            <Form className="">
+                            <Form className="" onSubmit={e => onSubmits(e)}>
                                 <Form.Group controlId="exampleForm.ControlInput1">
-                                    <Form.Control type="name" placeholder="Full Name" />
+                                    <Form.Control type="text" name="name" placeholder="Full Name" onBlur={(e) => getData(e)} required defaultValue={getName} />
                                 </Form.Group>
 
-                                <Form.Group controlId="exampleForm.ControlInput1">
-                                    <Form.Control type="phone" placeholder="Phone No." />
-                                </Form.Group>
+
+                                <input type="tel" id="phone" className="form-control" name="phone" placeholder="01812345678" pattern="[0-9]{11}" onBlur={(e) => getData(e)} required /><br />
 
                                 <Form.Group controlId="exampleForm.ControlInput1">
-                                    <Form.Control type="email" placeholder="Email Address" />
+                                    <Form.Control type="email" name="email" placeholder="Email Address" onBlur={(e) => getData(e)} required defaultValue={getEmail} />
                                 </Form.Group>
 
                                 <Form.Group controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={6} placeholder="Massage" />
+                                    <Form.Control as="textarea" rows={6} placeholder="Massage" name="massage" onBlur={(e) => getData(e)} required />
                                 </Form.Group>
                                 <Button style={{ width: "100%" }} type="submit" id="request-btn">Request Booking</Button>
                             </Form>
+                            <Link to="/dashboard">Already have a booking</Link>
                         </div>
                     </div>
                 </div>
