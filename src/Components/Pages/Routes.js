@@ -17,7 +17,9 @@ const Routes = () => {
                 <Dashboard />
             </PrivateRoute>
             <Route exact path="/login" component={Login} />;
-            <Route path="/details/:id" component={HomeDetails} />;
+            <PrivateRoute path="/details/:id">
+                <HomeDetails />
+            </PrivateRoute>;
             <Route path="*" component={NotFoundPages} />
         </Switch>
     );
