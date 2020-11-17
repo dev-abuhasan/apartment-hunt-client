@@ -11,7 +11,7 @@ const AdminService = () => {
 
     const [adminService, setAdminService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/all`)
+        fetch(`https://quiet-depths-16852.herokuapp.com/all`)
             .then(res => res.json())
             .then(data => {
                 setAdminService(data)
@@ -20,7 +20,7 @@ const AdminService = () => {
     const handleUpdate = (id, strings) => {
         if (strings === 'Done') {
             const statusOption = 'Done';
-            fetch(`http://localhost:5000/update-statue/${id}`, {
+            fetch(`https://quiet-depths-16852.herokuapp.com/update-statue/${id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ statusOption })
@@ -38,7 +38,7 @@ const AdminService = () => {
         }
         if (strings === 'onGoing') {
             const statusOption = 'onGoing';
-            fetch(`http://localhost:5000/update-statue/${id}`, {
+            fetch(`https://quiet-depths-16852.herokuapp.com/update-statue/${id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ statusOption })
@@ -57,7 +57,7 @@ const AdminService = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete-order/${id}`, { method: 'DELETE' })
+        fetch(`https://quiet-depths-16852.herokuapp.com/delete-order/${id}`, { method: 'DELETE' })
             .then(res => res.json())
             .then(data => {
                 if (data.success === false) {

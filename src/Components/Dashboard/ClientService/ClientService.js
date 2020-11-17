@@ -8,7 +8,7 @@ const ClientService = () => {
     const getEmail = sessionStorage.getItem('user');
     const [adminService, setAdminService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/all-rent?email=${getEmail}`)
+        fetch(`https://quiet-depths-16852.herokuapp.com/all-rent?email=${getEmail}`)
             .then(res => res.json())
             .then(data => {
                 setAdminService(data)
@@ -23,6 +23,7 @@ const ClientService = () => {
     const location = useLocation();
     const history = useHistory()
     const changePath = (id) => {
+        
         let { from } = location.state || { from: { pathname: `/details/${id}` } }
         history.push(from);
     }
@@ -42,7 +43,7 @@ const ClientService = () => {
                             <td>{data.serviceTitle}</td>
                             <td>{data.price}</td>
                             <td className="text-center">
-                                <button className="view-btn" onClick={() => changePath(`${data._id}`)}>View details</button>
+                                <button className="view-btn" onClick={() => changePath(`${data.id}`)}>View details</button>
                             </td>
                         </tr>
                     ) : <tr>

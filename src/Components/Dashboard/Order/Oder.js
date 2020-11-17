@@ -51,7 +51,7 @@ const Oder = () => {
         formsData.append("statusOption", formData.statusOption);
         formsData.append("image", formData.image);
 
-        fetch(`http://localhost:5000/add-order`, {
+        fetch(`https://quiet-depths-16852.herokuapp.com/add-order`, {
             method: 'POST',
             body: formsData
         })

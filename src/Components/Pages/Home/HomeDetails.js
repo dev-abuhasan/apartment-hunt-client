@@ -18,7 +18,7 @@ const HomeDetails = () => {
 
     const { id } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/details/${id}`)
+        fetch(`https://quiet-depths-16852.herokuapp.com/details/${id}`)
             .then(res => res.json())
             .then(data => {
                 setServiceData(data);
@@ -51,7 +51,7 @@ const HomeDetails = () => {
         formsData.append("price", getValuer.price);
         formsData.append("id", getValuer._id);
 
-        fetch(`http://localhost:5000/add-rent`, {
+        fetch(`https://quiet-depths-16852.herokuapp.com/add-rent`, {
             method: 'POST',
             body: formsData
         })

@@ -12,7 +12,7 @@ const Sidebar = () => {
     const HomeIcon = <FontAwesomeIcon icon={faHome} />
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/check-admin`, {
+    //     fetch(`https://quiet-depths-16852.herokuapp.com/check-admin`, {
     //         method: 'POST',
     //         headers: { 'Content-Type': 'application/json' },
     //         body: JSON.stringify({ email: getEmail })
@@ -38,19 +38,19 @@ const Sidebar = () => {
     return (
         <div className="pt-5">
             <p
-                className={seeData.serviceAdmin === true ? "m-2 text-success" : "m-2"}
+                className={seeData.serviceAdmin === true ? "m-2 text-success" : "m-2 cursor-pointer"}
                 onClick={() => ClickShowData("services-list-admin")}>
                 <span className="mr-2">{taxiIcon}</span>
                 Booking List
             </p>
             <p
-                className={seeData.order === true ? "m-2 text-success" : "m-2"}
+                className={seeData.order === true ? "m-2 text-success" : "m-2 cursor-pointer"}
                 onClick={() => ClickShowData("order")}>
                 <span className="mr-2">{plusIcon}</span>
                 Add Rent House
             </p>
             <p
-                className={seeData.serviceClient === true ? "m-2 text-success" : "m-2"}
+                className={seeData.serviceClient === true ? "m-2 text-success" : "m-2 cursor-pointer"}
                 onClick={() => ClickShowData("services-list")}>
                 <span className="mr-2">{HomeIcon}</span>
                 My Rent
