@@ -8,7 +8,7 @@ const ClientService = () => {
     const getEmail = sessionStorage.getItem('user');
     const [adminService, setAdminService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/all-rent?email=${getEmail}`)
+        fetch(`https://quiet-depths-16852.herokuapp.com/all-rent?email=${getEmail}`)
             .then(res => res.json())
             .then(data => {
                 setAdminService(data)

@@ -13,7 +13,7 @@ import { ServicesContext } from '../../../App';
 const Services = () => {
     const {serviceData, setServiceData} = useContext(ServicesContext);
     useEffect(() => {
-        fetch(`http://localhost:5000/all`)
+        fetch(`https://quiet-depths-16852.herokuapp.com/all`)
             .then(res => res.json())
             .then(data => {
                 setServiceData(data);
