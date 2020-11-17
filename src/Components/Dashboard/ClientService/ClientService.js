@@ -42,7 +42,7 @@ const ClientService = () => {
                             <td>{data.serviceTitle}</td>
                             <td>{data.price}</td>
                             <td className="text-center">
-                                <button className="view-btn" onClick={() => changePath(`${data._id}`)}>View details</button>
+                                <button className="view-btn" onClick={() => changePath(`${data.id}`)}>View details</button>
                             </td>
                         </tr>
                     ) : <tr>
