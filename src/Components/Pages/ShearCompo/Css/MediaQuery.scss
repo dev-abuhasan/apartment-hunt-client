@@ -52,18 +52,18 @@
         font-size: 20px;
     }
     .header-Background input{
-        width: 200px;
+       width: 90%;
         padding: 5px;
         border-radius:5px;
-        border-radius: 10px 0px 0px 10px;
+        border-radius: 10px;
     }
-    .header-Background button{
-        padding: 5px;
-        width: 80px;
-        font-size: 15px;
-        margin-left: 0px;
-        border-radius: 0px 10px 10px 0px;
-    }
+    // .header-Background button{
+    //     padding: 5px;
+    //     width: 80px;
+    //     font-size: 15px;
+    //     margin-left: 0px;
+    //     border-radius: 0px 10px 10px 0px;
+    // }
     .review h1{
         font-size:20px;
         font-weight:900;
@@ -122,6 +122,9 @@
     }
     ::placeholder{
         font-size: 14px;
+    }
+    .details-title-sec h3{
+        font-size: 15px!important;
     }
 }
 @media screen and (max-width: 400px) {

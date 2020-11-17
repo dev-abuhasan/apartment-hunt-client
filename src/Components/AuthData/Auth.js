@@ -46,6 +46,8 @@ const UserAuthProvider = (props) => {
                     email: email,
                     photo: photoURL
                 }
+                sessionStorage.setItem('name', signedIUser.name);
+                sessionStorage.setItem('user', signedIUser.email);
                 setUser(signedIUser);
                 authStateChange();
                 // storeAuthJwtToken();
@@ -69,8 +71,10 @@ const UserAuthProvider = (props) => {
                     email: email,
                     photo: photoURL
                 }
+                sessionStorage.setItem('name', signedIUser.name);
+                sessionStorage.setItem('user', signedIUser.email);
                 setUser(signedIUser);
-                storeAuthJwtToken()
+                storeAuthJwtToken();
             }).catch(error => {
                 const errorMessage = error.message;
                 const email = error.email;
@@ -135,8 +139,8 @@ const UserAuthProvider = (props) => {
                 sessionStorage.setItem("name", user.displayName);
                 sessionStorage.setItem("photo", user.photoURL);
             } else {
-               console.log("Logout success");
-              
+                console.log("Logout success");
+
             }
         });
     }

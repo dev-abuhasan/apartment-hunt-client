@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Css/Review.scss';
 import './Css/MediaQuery.scss';
 
@@ -25,7 +24,7 @@ const ReviewData = [
 ]
 
 const Review = () => {
-    const [reviewData, setReviewData] = useState(ReviewData);
+    const [reviewData] = useState(ReviewData);
 
     return (
         <section className="review mt-5">
