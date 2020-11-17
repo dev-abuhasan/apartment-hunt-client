@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
@@ -8,17 +8,17 @@ import './Css/Services.scss';
 import LocationOnIcon from '../../images/logos/map-marker-alt-solid 1.png';
 import bad from "../../images/logos/bed 1.png";
 import bath from "../../images/logos/bath 1.png";
+import { ServicesContext } from '../../../App';
 
 const Services = () => {
-    const [serviceData, setServiceData] = useState([]);
-
+    const {serviceData, setServiceData} = useContext(ServicesContext);
     useEffect(() => {
         fetch(`http://localhost:5000/all`)
             .then(res => res.json())
             .then(data => {
                 setServiceData(data);
             })
-    }, [])
+    }, [setServiceData])
 
     const location = useLocation();
     const history = useHistory()
@@ -51,7 +51,7 @@ const Services = () => {
                                 </div>
                                 <div className="service-price d-flex justify-content-between align-items-center mb3 ">
                                     <p className="price">${data.price}</p>
-                                    <p><Button className="card-btn" variant="success" onClick={() => pathChange(`${data._id}`)}>View Details</Button></p>
+                                    <p><Button className="card-btn cursor-pointer" variant="success" onClick={() => pathChange(`${data._id}`)}>View Details</Button></p>
                                 </div>
                             </div>
                         </div>
