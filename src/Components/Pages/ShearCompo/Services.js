@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
@@ -8,10 +8,10 @@ import './Css/Services.scss';
 import LocationOnIcon from '../../images/logos/map-marker-alt-solid 1.png';
 import bad from "../../images/logos/bed 1.png";
 import bath from "../../images/logos/bath 1.png";
+import { ServicesContext } from '../../../App';
 
 const Services = () => {
-    const [serviceData, setServiceData] = useState([]);
-
+    const [serviceData, setServiceData] = useContext(ServicesContext);
     useEffect(() => {
         fetch(`http://localhost:5000/all`)
             .then(res => res.json())
