@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
@@ -11,14 +11,14 @@ import bath from "../../images/logos/bath 1.png";
 import { ServicesContext } from '../../../App';
 
 const Services = () => {
-    const [serviceData, setServiceData] = useContext(ServicesContext);
+    const {serviceData, setServiceData} = useContext(ServicesContext);
     useEffect(() => {
         fetch(`http://localhost:5000/all`)
             .then(res => res.json())
             .then(data => {
                 setServiceData(data);
             })
-    }, [])
+    }, [setServiceData])
 
     const location = useLocation();
     const history = useHistory()

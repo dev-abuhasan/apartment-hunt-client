@@ -13,7 +13,7 @@ export const ServicesContext = createContext();
 function App() {
   const [serviceData, setServiceData] = useState([]);
   return (
-    <ServicesContext.Provider value={[serviceData, setServiceData]}>
+    <ServicesContext.Provider value={{serviceData, setServiceData}}>
     <ExtraDataProvider>
       <UserAuthProvider>
         <Router>
