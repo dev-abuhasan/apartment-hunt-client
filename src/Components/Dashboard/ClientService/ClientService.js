@@ -23,6 +23,7 @@ const ClientService = () => {
     const location = useLocation();
     const history = useHistory()
     const changePath = (id) => {
+        
         let { from } = location.state || { from: { pathname: `/details/${id}` } }
         history.push(from);
     }
