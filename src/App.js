@@ -7,7 +7,6 @@ import Routes from './Components/Pages/Routes';
 import { UserAuthProvider } from './Components/AuthData/Auth';
 import { ExtraDataProvider } from './Components/ExtraData/ExtraData';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 export const ServicesContext = createContext();
 
 function App() {
